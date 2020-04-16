@@ -1,9 +1,10 @@
+import "./SeasonDisplay.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
 const seasonConfig = {
     summer: {
-        text: "let's hit the beach",
+        text: "lets hit the beach",
         iconName: "sun"
     },
     
@@ -28,11 +29,12 @@ const SeasonDisplay = (props) => {
   const {text, iconName} = seasonConfig[season];
 
   return (
-    <div>
+    //   This means we are giving the div a classname of whatever the season ends up being.
+    <div className={`season-display ${season}`}>
         {/* backtick - es2015 template string; This similar to using f-strings in python */}
-      <i className={`${iconName} icon`} />
+      <i className={`icon-left massive ${iconName} icon`} />
       <h1>{text}</h1>
-      <i className={`${iconName} icon`} />
+      <i className={`icon-right massive ${iconName} icon`} />
     </div>
   );
 };
