@@ -3,12 +3,10 @@
 
 Using React, this app uses browser location information to determine a users latitude and display whether or not the user is in a winter or summer month.
 
-![Image when user's location is in summer]
-(https://github.com/kkh1178/ReactProjects/blob/master/seasons/images/Screen%20Shot%202020-04-17%20at%2011.35.18%20AM.png)
+![Image when user's location is in summer](https://github.com/kkh1178/ReactProjects/blob/master/seasons/images/Screen%20Shot%202020-04-17%20at%2011.35.18%20AM.png)
 
 
-![Image when user's location is in winter]
-(https://github.com/kkh1178/ReactProjects/blob/master/seasons/images/Screen%20Shot%202020-04-20%20at%201.47.16%20PM.png)
+![Image when user's location is in winter](https://github.com/kkh1178/ReactProjects/blob/master/seasons/images/Screen%20Shot%202020-04-20%20at%201.47.16%20PM.png)
 
 
 
