@@ -5,7 +5,7 @@ import Spinner from "./spinner";
 
 class App extends React.Component {
   // Constructor function particular to javascript not react;
-  // the very first function to be called when a new intance of the component is created.
+  // the very first function to be called when a new instance of the component is created.
   // Generally not recommended to do data loading inside of the constructor; Makes the code clearer than having it spread across componentDidMount and constructor.
   //   constructor(props) {
   //     // We are borrowing functionality from react component base class; Must call super to make sure that we are able to call the constructor function from the parent component
@@ -34,17 +34,29 @@ class App extends React.Component {
 
   // React requires render be defined; it gets called all the time so don't initialize some work or request in render
   // Render is called twice in this app: once when the application is intiialized and again when we update a property on our state object
-  render() {
+//   Originally, we had the logic in the render function, but its cleaner if we put it out here. avoid putting multiple return statements in render
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>;
+        return <div>Error: {this.state.errorMessage}</div>;
+      }
+  
+      if (!this.state.errorMessage && this.state.lat) {
+        return <SeasonDisplay lat={this.state.lat} />;
+      }
+  
+      return <Spinner message="Please accept location request" />;
     }
 
-    if (!this.state.errorMessage && this.state.lat) {
-      return <SeasonDisplay lat={this.state.lat} />;
+  
+  
+  render() {
+    return (
+        // This won't work because we don't have a classname for a red border. Just an example of how to format this
+        <div className="border red">
+            {this.renderContent()}
+        </div>
+    );
     }
-
-    return <Spinner message="Please accept location request" />;
-  }
 }
 
 ReactDOM.render(<App />, document.querySelector("#root"));
