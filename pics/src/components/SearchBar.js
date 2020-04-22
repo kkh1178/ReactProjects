@@ -7,7 +7,8 @@ class SearchBar extends React.Component {
   onFormSubmit = (event) => {
     // event.preventDefault will prevent the browser from submitting to form automatticaly and automatically refreshing when user hits enter
     event.preventDefault();
-    console.log(this.state.term);
+    // 
+    this.props.onSubmit(this.state.term);
   }
 
   render() {
@@ -25,7 +26,7 @@ class SearchBar extends React.Component {
                 <input 
                   type="text" 
                   value={this.state.term} 
-                  onChange={(e) => this.setState(e.target.value)}/>
+                  onChange={e => this.setState({term: e.target.value})}/>
               </div>
               
             </form>
