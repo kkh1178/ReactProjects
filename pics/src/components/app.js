@@ -16,15 +16,15 @@ const key = process.env.UNSPLASH
 
 // Rewrote the above const to the below class function
 class App extends React.Component {
-
-  onSeachSubmit(term) {
-    console.log(key)
-    axios.get('https://api.unsplash.com/search/photos', {
-      params: { query: term},
+// use the async/allow syntax. async is an alternate method to promise. 
+  async onSeachSubmit(term) {
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+      params: { query: term },
       headers: {
         Authorization: "Client-ID "
       }
-    })
+    });
+    console.log(response.data.results);
   }
 
   render() {
