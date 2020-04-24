@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
     return (
         <div className="ui segment">
           {/* you can also put an arrow function in onSubmit {(event)=> this.onFormSubmit(event)} */}
-            {/* you add the parantheses on the end of onFormSubmit in the above, that defines an arrow function and passes it down into the form. When sumbitted, it calls the arrow function. envokes arrow function onces */}
+            {/* you add the parantheses on the end of onFormSubmit in the above, that defines an arrow function and passes it down into the form. When sumbitted, it calls the arrow function. envokes arrow function once */}
             <form onSubmit={this.onFormSubmit} className="ui form">
               <div className="field">
                 <label>
