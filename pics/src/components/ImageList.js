@@ -1,12 +1,13 @@
 import "./ImageList.css";
 import React from "react";
-import ImageCard from "./ImageCard"
+import ImageCard from "./ImageCard";
 
 const ImageList = (props) => {
-  const images = props.images.map((image)=> {
-    return <ImageCard key={image.id} image={image} />;
-  });
-  return <div className = "image-list">{images}</div>;
+	const images = props.images.map((image) => {
+		// adding a key prop to prevent error;
+		return <ImageCard key={image.id} image={image} />;
+	});
+	return <div className="image-list">{images}</div>;
 };
 
 export default ImageList;
