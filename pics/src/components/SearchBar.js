@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
 	// Changed this to an arrow function instead of an object to prevent the error of "Cannot read property state of undefined"
 
 	onFormSubmit = (event) => {
-		// event.preventDefault will prevent the browser from submitting to form automatticaly and automatically refreshing when user hits enter
+		// event.preventDefault will prevent the browser from submitting to form automatically and automatically refreshing when user hits enter
 		event.preventDefault();
 		// When we are in a class based component, we reference props with this.props...not just props.
 		this.props.onSubmit(this.state.term);

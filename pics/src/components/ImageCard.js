@@ -9,10 +9,9 @@ class ImageCard extends React.Component {
 
 	componentDidMount() {
 		// When our component renders, we are printing the image height. But the image
-		// hasn't actually loaded yet. Its too early to pull the client hieght from compontent
+		// hasn't actually loaded yet. Its too early to pull the client height from component
 		// didmount. To fix this, use this.imageRef.
-		// console.log(this.imageRef);
-		// console.log(this.imageRef.current.clientHeight);
+
 		this.imageRef.current.addEventListener("load", this.setSpans);
 		// Define setSpans function
 	}

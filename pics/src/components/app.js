@@ -10,7 +10,7 @@ class App extends React.Component {
 		images: [],
 	};
 	// use the async/allow syntax. async is an alternate method to promise.
-	onSeachSubmit = async (term) => {
+	onSearchSubmit = async (term) => {
 		const response = await unsplash.get("/search/photos", {
 			params: { query: term },
 		});
@@ -23,7 +23,7 @@ class App extends React.Component {
 		return (
 			<div className="ui container" style={{ marginTop: "10px" }}>
 				{console.log("test", this.state.images.length)}
-				<SearchBar onSubmit={this.onSeachSubmit} />
+				<SearchBar onSubmit={this.onSearchSubmit} />
 				{/* One of the reasons to set our images to an empty array and not a null object is so we can find the length */}
 				<ImageList images={this.state.images}></ImageList>
 			</div>
