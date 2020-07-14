@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
 import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 
 // Creating a class based component because it will hold all of the
 // different states for our components
@@ -13,7 +14,8 @@ import VideoList from "./VideoList";
 const key = "";
 
 class App extends React.Component {
-	state = { videos: [] };
+	state = { videos: [], selectedVideo: null };
+
 	onTermSubmit = async (term) => {
 		// console.log(term);
 		const response = await youtube.get("/search", {
@@ -25,15 +27,24 @@ class App extends React.Component {
 			},
 		});
 
-		console.log(response);
+		// console.log(response);
 		this.setState({ videos: response.data.items });
+	};
+
+	onVideoSelect = (video) => {
+		// console.log("from the app!", video);
+		this.setState({ selectedVideo: video });
 	};
 
 	render() {
 		return (
 			<div className="ui container" style={{ marginTop: "10 px" }}>
 				<SearchBar onFormSubmit={this.onTermSubmit} />
-				<VideoList videos={this.state.videos} />
+				<VideoDetail video={this.state.selectedVideo} />
+				<VideoList
+					onVideoSelect={this.onVideoSelect}
+					videos={this.state.videos}
+				/>
 			</div>
 		);
 	}

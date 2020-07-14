@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
 	onFormSubmit = (event) => {
 		// The form likes to reset itself automatically when I hit enter. This prevents that.
 		event.preventDefault();
-		// Make sure we call callback from parent component; I NEED TO UNDERSTAND THIS!!!
+		// Make sure we call callback from parent component; I am calling onTermSubmit from the parent
+		// component into onFOrmSubmit
 		this.props.onFormSubmit(this.state.term);
 	};
 
@@ -25,6 +26,7 @@ class SearchBar extends React.Component {
 		return (
 			// These classNames are all coming from the semantic ui docs that we imported
 			<div className="search-bar ui segment">
+				{/* onSubmit might be a special handler too? */}
 				<form onSubmit={this.onFormSubmit} className="ui form">
 					<div className="field">
 						<label>Video Search:</label>
