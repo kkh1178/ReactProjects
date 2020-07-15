@@ -16,6 +16,12 @@ const key = "";
 class App extends React.Component {
 	state = { videos: [], selectedVideo: null };
 
+	componentDidMount() {
+		// This component will automatically load a default search of
+		// pancakes before we do anything
+		this.onTermSubmit("pancakes");
+	}
+
 	onTermSubmit = async (term) => {
 		// console.log(term);
 		const response = await youtube.get("/search", {
@@ -28,7 +34,10 @@ class App extends React.Component {
 		});
 
 		// console.log(response);
-		this.setState({ videos: response.data.items });
+		this.setState({
+			videos: response.data.items,
+			selectedVideo: response.data.items[0],
+		});
 	};
 
 	onVideoSelect = (video) => {
